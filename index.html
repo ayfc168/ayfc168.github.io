@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-<script>LA.init({id:"3QF1I3bVFuU6O5tL",ck:"3QF1I3bVFuU6O5tL"})</script>
 <head>
     <meta charset="UTF-8">
-    <!-- 0 秒跳转，替换引号内为你的目标URL -->
-    <meta http-equiv="refresh"https://www.baidu.com/index.php?tn=75144485_3_dg&ch=1">
-    <title>妹妹在路上</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面跳转中...</title>
+
+    <!-- 👇 目标地址已填好，以后要改地址只改这一行就行 👇 -->
+    <script>
+        const targetUrl = "https://www.kanzhun.com//";
+    </script>
+
+    <!-- 兼容所有浏览器的meta兜底跳转 -->
+    <meta id="refreshMeta" http-equiv="refresh" content="0; url=">
+
+    <!-- 51LA统计代码（已保留，不用修改） -->
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>
+        LA.init({id:"3QF1I3bVFuU6O5tL",ck:"3QF1I3bVFuU6O5tL"})
+    </script>
+
+    <script>
+        // 动态给meta标签赋值目标地址
+        document.getElementById('refreshMeta').content = "0; url=" + targetUrl;
+        // JS 0秒立即跳转（优先级最高）
+        window.location.replace(targetUrl);
+    </script>
 </head>
 <body>
-    就到了，等会呢...
+    <div style="text-align:center; margin-top:100px; font-family:Arial, sans-serif;">
+        <h2>正在为您跳转页面...</h2>
+        <p>如果没有自动跳转，请点击下方链接：</p>
+        <p><a id="manualLink" href="" style="color:blue; font-size:18px;">点击此处手动跳转</a></p>
+    </div>
+
+    <script>
+        // 同步手动跳转链接的地址
+        document.getElementById('manualLink').href = targetUrl;
+    </script>
 </body>
 </html>
