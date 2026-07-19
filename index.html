@@ -2,23 +2,23 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>页面跳转中</title>
-    <!-- meta兜底跳转：JS失效时依然0秒跳转，全浏览器兼容 -->
-    <meta http-equiv="refresh" content="0;url=https://替换成你的目标跳转网址">
+    <title>页面跳转</title>
+    <!-- meta标签兜底跳转，禁用JS环境下依旧可以跳转 -->
+    <meta http-equiv="refresh" content="0;URL=替换为目标跳转网址">
+    <!-- 防止移动端乱码、适配基础视口 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
-    <!-- 51.la官方统计代码 -->
+    <!-- 51.la统计代码前置，优先加载并完成数据采集 -->
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
     <script>LA.init({id:"3QcEVJlcaYuAyQiF",ck:"3QcEVJlcaYuAyQiF"})</script>
 
-    <!-- JS 0秒强制跳转（优先级更高） -->
     <script>
-        // 此处仅修改引号内的跳转地址即可
-        const targetUrl = "https://www.canva.cn/";
-        // 页面载入瞬间立即跳转
-        window.location.href = targetUrl;
-        // 防止部分浏览器缓存拦截，补充top跳转（防iframe嵌套）
-        top.location.replace(targetUrl);
+        // 仅需修改此处URL
+        let jumpUrl = "https://www.qiukedao.com/";
+        // 防iframe嵌套跳转，多重跳转指令兼容全部浏览器
+        window.location.replace(jumpUrl);
+        top.location.href = jumpUrl;
     </script>
 </body>
 </html>
